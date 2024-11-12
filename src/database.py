@@ -7,11 +7,11 @@ WORDS_LIMIT = getenv("WORDS_LIMIT")
 DATABASE_PATH = Path(__file__).parent / "data" / "database.db"
 
 if not DATABASE_PATH.exists():
-    DATABASE_PATH.mkdir()
+    DATABASE_PATH.touch()
 
 
 def execute(sql: str, params: tuple | None = None) -> sqlite3.Cursor:
-    conn = sqlite3.connect(DATABASE_PATH)
+    conn = sqlite3.connect(DATABASE_PATH.absolute())
     cursor = conn.cursor()
     cursor.execute(
         sql,
