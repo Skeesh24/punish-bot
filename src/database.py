@@ -2,7 +2,7 @@ import sqlite3
 from os import getenv
 from pathlib import Path
 
-IDS_TO_LIMIT = getenv("IDS_TO_LIMIT").split(",")
+IDS_TO_LIMIT = [688962669, 2050790028]
 WORDS_LIMIT = getenv("WORDS_LIMIT")
 DATABASE_PATH = Path(__file__).parent / "data" / "database.db"
 

@@ -6,7 +6,7 @@ from aiogram import Bot, Dispatcher, types
 
 from database import get_user_words_count, update_user_words_count
 
-IDS_TO_LIMIT = getenv("IDS_TO_LIMIT").split(",")
+IDS_TO_LIMIT = [688962669, 2050790028]
 BOT_TOKEN = getenv("BOT_TOKEN")
 BAN_MINUTES = getenv("BAN_MINUTES")
 
