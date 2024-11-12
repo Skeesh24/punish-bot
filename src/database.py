@@ -1,12 +1,17 @@
 import sqlite3
 from os import getenv
+from pathlib import Path
 
 IDS_TO_LIMIT = getenv("IDS_TO_LIMIT").split(",")
 WORDS_LIMIT = getenv("WORDS_LIMIT")
+DATABASE_PATH = Path(__file__).parent / "data" / "database.db"
+
+if not DATABASE_PATH.exists():
+    DATABASE_PATH.mkdir()
 
 
 def execute(sql: str, params: tuple | None = None) -> sqlite3.Cursor:
-    conn = sqlite3.connect("database.db")
+    conn = sqlite3.connect(DATABASE_PATH)
     cursor = conn.cursor()
     cursor.execute(
         sql,
