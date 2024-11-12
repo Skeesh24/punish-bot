@@ -11,7 +11,7 @@ if not DATABASE_PATH.exists():
 
 
 def execute(sql: str, params: tuple | None = None) -> sqlite3.Cursor:
-    conn = sqlite3.connect(DATABASE_PATH.absolute())
+    conn = sqlite3.connect(DATABASE_PATH.absolute().as_posix())
     cursor = conn.cursor()
     cursor.execute(
         sql,
